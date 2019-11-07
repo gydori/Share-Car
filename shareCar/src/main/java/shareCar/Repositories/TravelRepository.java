@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import shareCar.Models.Travel;
 
 @Repository
-public interface TravelRepository extends JpaRepository<Long, Travel> {
+public interface TravelRepository extends JpaRepository<Travel, Long> {
 
 }
