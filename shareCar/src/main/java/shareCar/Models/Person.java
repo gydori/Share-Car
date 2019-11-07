@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,6 +36,14 @@ public class Person {
 
   @OneToMany(mappedBy = "owner")
   private List<Car> cars;
+
+  @ManyToMany
+  @JoinTable(
+      name = "person_travels",
+      joinColumns = {@JoinColumn(name = "passenger_id")},
+      inverseJoinColumns = {@JoinColumn(name = "travel_id")}
+  )
+  private List<Travel> travels;
 
   public Long getId() {
     return id;
