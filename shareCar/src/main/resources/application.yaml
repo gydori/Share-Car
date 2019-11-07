@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shareCar
+    username: root
+    password: linuxconfig.org
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      use-new-id-generator-mappings: false
+      ddl-auto: create
