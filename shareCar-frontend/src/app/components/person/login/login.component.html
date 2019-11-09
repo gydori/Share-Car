@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Bejelentkezés</mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>e-mail cím</mat-label>
+        <input matInput type="email" formControlName="email" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>jelszó</mat-label>
+        <input matInput type="password" formControlName="password" required />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button type="submit">Bejelentkezés</button>
+  </mat-card-content>
+  <mat-card-actions></mat-card-actions>
+</mat-card>
