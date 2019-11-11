@@ -10,7 +10,7 @@ import shareCar.Models.Person;
 import shareCar.Services.PersonService;
 
 @RestController
-public class UserController {
+public class PersonController {
 
   @Autowired
   private PersonService personService;

@@ -10,7 +10,7 @@ export class Person {
   public firstname: string;
   public lastname: string;
   public gender: Gender;
-  public dateOfBirth: Date;
+  public dateOfBirth: any;
 
   constructor(
     email: string,
@@ -18,7 +18,7 @@ export class Person {
     firstname: string,
     lastname: string,
     gender: Gender,
-    dateOfBirth: Date
+    dateOfBirth: number[]
   ) {
     this.email = email;
     this.password = password;

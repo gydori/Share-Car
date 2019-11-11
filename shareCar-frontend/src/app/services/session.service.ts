@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
+import { baseUrl } from "../constants";
 
 @Injectable({
   providedIn: "root"
 })
 export class SessionService {
-  private route = "http://localhost:8080/oauth/token";
+  private route = baseUrl + "oauth/token";
   private isLoggedIn: Boolean = new Boolean(this.hasToken());
 
   constructor(private http: HttpClient, private router: Router) {}

@@ -1,1 +1,59 @@
-<p>register works!</p>
+<mat-card>
+  <mat-card-title>Regisztráció</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>vezetéknév</mat-label>
+        <input matInput type="text" formControlName="lastname" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>keresztnév</mat-label>
+        <input matInput type="text" formControlName="firstname" required />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>születési dátum</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="dateOfBirth"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <mat-radio-group formControlName="gender" required>
+        <mat-radio-button value="FEMALE">Nő</mat-radio-button>
+        <br />
+        <mat-radio-button value="MALE">Férfi</mat-radio-button>
+      </mat-radio-group>
+      <br />
+      <mat-form-field>
+        <mat-label>e-mail</mat-label>
+        <input matInput type="email" formControlName="email" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>jelszó</mat-label>
+        <input matInput type="password" formControlName="password" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>jelszó mégegyszer</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="passwordAgain"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <button mat-raised-button type="submit" [disabled]="!register.valid">
+        Regisztrálok
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

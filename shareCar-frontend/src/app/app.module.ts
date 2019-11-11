@@ -9,6 +9,7 @@ import { LoginComponent } from "./components/person/login/login.component";
 import { RegisterComponent } from "./components/person/register/register.component";
 import { MaterialModule } from "./material/material.module";
 import { ProfileComponent } from "./components/person/profile/profile.component";
+import { MatDatepickerModule } from "@angular/material/datepicker";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
