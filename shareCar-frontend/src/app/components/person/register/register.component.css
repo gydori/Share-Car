@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 20%;
+  position: absolute;
+  top: 10%;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+mat-card-content {
+  margin: 20px 35px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+}
