@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<mat-card *ngIf="person">
+  <mat-card-title>{{ person.lastname }} {{ person.firstname }}</mat-card-title>
+  <mat-card-content>
+    <mat-list-item>vezetéknév: {{ person.lastname }}</mat-list-item>
+    <mat-list-item>keresztnév: {{ person.firstname }}</mat-list-item>
+    <mat-list-item>e-mail cím: {{ person.email }}</mat-list-item>
+    <mat-list-item>nem: {{ person.gender | gender }}</mat-list-item>
+    <mat-list-item
+      >születési dátum: {{ person.dateOfBirth | customDate }}</mat-list-item
+    >
+  </mat-card-content>
+</mat-card>

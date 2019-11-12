@@ -1,0 +1,16 @@
+<mat-toolbar class="navbar" color="primary">
+  <div>
+    Share car
+  </div>
+  <div *ngIf="sessionService.isLoggedIn">
+    <button mat-raised-button color="primary" routerLink="profile">
+      Profilom
+    </button>
+    <button mat-raised-button color="primary">Utazásaim</button>
+    <button mat-raised-button color="primary">Utazások</button>
+    <button mat-raised-button color="primary">Pénzügyek</button>
+    <button mat-raised-button color="primary" (click)="onClick()">
+      Kilépés
+    </button>
+  </div>
+</mat-toolbar>

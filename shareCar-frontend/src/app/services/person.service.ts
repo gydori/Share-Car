@@ -12,4 +12,8 @@ export class PersonService {
   public createPerson(person: Person) {
     return this.http.post(baseUrl + "register", person);
   }
+
+  public getOnePerson() {
+    return this.http.get(baseUrl + "profile");
+  }
 }

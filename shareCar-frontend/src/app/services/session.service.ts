@@ -40,9 +40,10 @@ export class SessionService {
     localStorage.removeItem("token");
     localStorage.removeItem("expires_at");
     this.isLoggedIn = false;
+    this.router.navigate([""]);
   }
 
   public hasToken(): boolean {
-    return localStorage.getItem("token") != undefined;
+    return !!localStorage.getItem("token");
   }
 }

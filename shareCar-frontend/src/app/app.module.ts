@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
@@ -9,7 +9,10 @@ import { LoginComponent } from "./components/person/login/login.component";
 import { RegisterComponent } from "./components/person/register/register.component";
 import { MaterialModule } from "./material/material.module";
 import { ProfileComponent } from "./components/person/profile/profile.component";
-import { MatDatepickerModule } from "@angular/material/datepicker";
+import { HeaderComponent } from "./components/common/header/header.component";
+import { TokenInterceptor } from "./interceptors/token.interceptor";
+import { GenderPipe } from "./pipes/gender.pipe";
+import { CustomDatePipe } from "./pipes/date.pipe";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -21,7 +24,10 @@ const myRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    HeaderComponent,
+    GenderPipe,
+    CustomDatePipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,13 @@ const myRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Injector } from "@angular/core";
 import {
   HttpInterceptor,
   HttpRequest,
@@ -8,10 +8,10 @@ import { SessionService } from "../services/session.service";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(public sessionService: SessionService) {}
+  constructor(private injector: Injector) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    if (this.sessionService.hasToken()) {
+    if (this.injector.get(SessionService).hasToken()) {
       req = req.clone({
         setHeaders: {
           "Content-Type": "application/json",
