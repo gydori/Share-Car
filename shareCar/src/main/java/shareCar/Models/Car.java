@@ -30,7 +30,7 @@ public class Car {
   private Integer numberOfSeats;
 
   @Column
-  private Integer ConsumptionPerKm;
+  private Integer consumptionPerKm;
 
   @ManyToOne
   @JoinColumn(name = "owner_id", nullable = false)
@@ -72,11 +72,11 @@ public class Car {
   }
 
   public Integer getConsumptionPerKm() {
-    return ConsumptionPerKm;
+    return consumptionPerKm;
   }
 
   public void setConsumptionPerKm(Integer consumptionPerKm) {
-    ConsumptionPerKm = consumptionPerKm;
+    this.consumptionPerKm = consumptionPerKm;
   }
 
   public Person getOwner() {

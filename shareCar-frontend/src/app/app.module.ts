@@ -13,6 +13,7 @@ import { HeaderComponent } from "./components/common/header/header.component";
 import { TokenInterceptor } from "./interceptors/token.interceptor";
 import { GenderPipe } from "./pipes/gender.pipe";
 import { CustomDatePipe } from "./pipes/date.pipe";
+import { CreateCarComponent } from "./components/car/create-car/create-car.component";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -27,7 +28,8 @@ const myRoutes: Routes = [
     ProfileComponent,
     HeaderComponent,
     GenderPipe,
-    CustomDatePipe
+    CustomDatePipe,
+    CreateCarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ const myRoutes: Routes = [
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateCarComponent]
 })
 export class AppModule {}

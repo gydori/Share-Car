@@ -12,7 +12,12 @@
         <input matInput type="password" formControlName="password" required />
       </mat-form-field>
       <br />
-      <button mat-raised-button type="submit" [disabled]="!login.valid">
+      <button
+        mat-raised-button
+        type="submit"
+        [disabled]="!login.valid"
+        color="primary"
+      >
         Bejelentkezés
       </button>
     </form>
