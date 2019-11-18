@@ -39,6 +39,17 @@ public class Car {
   @OneToMany(mappedBy = "car")
   private List<Travel> travels;
 
+  public Car() {
+  }
+
+  public Car(String registrationNumber, String type, Integer numberOfSeats,
+      Integer consumptionPerKm) {
+    this.registrationNumber = registrationNumber;
+    this.type = type;
+    this.numberOfSeats = numberOfSeats;
+    this.consumptionPerKm = consumptionPerKm;
+  }
+
   public Long getId() {
     return id;
   }

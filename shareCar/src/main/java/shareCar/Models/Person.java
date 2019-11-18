@@ -42,14 +42,27 @@ public class Person {
 
   @OneToMany(mappedBy = "owner")
   private List<Car> cars;
-
   @ManyToMany
   @JoinTable(
       name = "person_travels",
       joinColumns = {@JoinColumn(name = "passenger_id")},
       inverseJoinColumns = {@JoinColumn(name = "travel_id")}
   )
+
   private List<Travel> travels;
+
+  public Person() {
+  }
+
+  public Person(String email, String password, String firstname, String lastname,
+      Gender gender, LocalDate dateOfBirth) {
+    this.email = email;
+    this.password = password;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.gender = gender;
+    this.dateOfBirth = dateOfBirth;
+  }
 
   public Long getId() {
     return id;

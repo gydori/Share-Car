@@ -1,5 +1,6 @@
 package shareCar.Services;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shareCar.Models.Car;
@@ -17,5 +18,13 @@ public class CarService {
   public Car createCar(Car car) {
     car.setOwner(personService.getCurrentPerson());
     return carRepository.save(car);
+  }
+
+  public List<Car> getAllCar() {
+    return carRepository.findByOwner(personService.getCurrentPerson());
+  }
+
+  public void deleteCar(Car car) {
+    carRepository.delete(car);
   }
 }
