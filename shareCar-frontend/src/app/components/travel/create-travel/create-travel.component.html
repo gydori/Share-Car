@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Utazás hozzáadása</h1>
+<div mat-dialog-content [formGroup]="createTravelForm">
+  <mat-form-field>
+    <mat-label>indulás időpontja</mat-label>
+    <input
+      matInput
+      type="datetime-local"
+      formControlName="departure"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>honnan</mat-label>
+    <input matInput type="text" formControlName="whereFrom" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>hová</mat-label>
+    <input matInput type="text" formControlName="whereTo" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>út hossza (km)</mat-label>
+    <input matInput type="number" formControlName="length" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>üzemanyag ára/l</mat-label>
+    <input matInput type="number" formControlName="priceOfFuel" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Autó</mat-label>
+    <mat-select formControlName="car" required>
+      <mat-option *ngFor="let car of cars" [value]="car">
+        {{ car.type }} {{ car.registrationNumber }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="createTravelForm.value"
+    [disabled]="!createTravelForm.valid"
+    color="primary"
+  >
+    Mentés
+  </button>
+  <button mat-raised-button [mat-dialog-close]>Mégsem</button>
+</div>

@@ -1,6 +1,7 @@
 package shareCar;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import shareCar.Models.Car;
 import shareCar.Models.Gender;
 import shareCar.Models.Person;
+import shareCar.Models.Travel;
 import shareCar.Repositories.CarRepository;
 import shareCar.Services.PersonService;
+import shareCar.Services.TravelService;
 
 @Component
 @Transactional
@@ -22,6 +25,9 @@ public class DataLoader implements CommandLineRunner {
   @Autowired
   private CarRepository carRepository;
 
+  @Autowired
+  private TravelService travelService;
+
   @Override
   public void run(String... args) throws Exception {
     Person person1 = new Person("person@person.com", "person", "Person", "Person", Gender.MALE,
@@ -31,5 +37,9 @@ public class DataLoader implements CommandLineRunner {
     Car car1 = new Car("asd-123", "opel", 4, 170);
     car1.setOwner(person1);
     carRepository.save(car1);
+
+    Travel travel = new Travel(LocalDateTime.of(2019, 05, 20, 10, 57), "innen", "oda", 10l, 400,
+        car1);
+    travelService.createTravel(travel);
   }
 }

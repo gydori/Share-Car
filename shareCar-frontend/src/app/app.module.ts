@@ -14,11 +14,14 @@ import { TokenInterceptor } from "./interceptors/token.interceptor";
 import { GenderPipe } from "./pipes/gender.pipe";
 import { CustomDatePipe } from "./pipes/date.pipe";
 import { CreateCarComponent } from "./components/car/create-car/create-car.component";
+import { MyTravelsComponent } from "./components/travel/my-travels/my-travels.component";
+import { CreateTravelComponent } from "./components/travel/create-travel/create-travel.component";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "profile", component: ProfileComponent }
+  { path: "profile", component: ProfileComponent },
+  { path: "mytravels", component: MyTravelsComponent }
 ];
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ const myRoutes: Routes = [
     HeaderComponent,
     GenderPipe,
     CustomDatePipe,
-    CreateCarComponent
+    CreateCarComponent,
+    MyTravelsComponent,
+    CreateTravelComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,6 @@ const myRoutes: Routes = [
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [CreateCarComponent]
+  entryComponents: [CreateCarComponent, CreateTravelComponent]
 })
 export class AppModule {}

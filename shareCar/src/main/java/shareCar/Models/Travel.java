@@ -43,6 +43,19 @@ public class Travel {
   @ManyToMany(mappedBy = "travels")
   private List<Person> passengers;
 
+  public Travel() {
+  }
+
+  public Travel(LocalDateTime departure, String whereFrom, String whereTo, Long length,
+      Integer priceOfFuel, Car car) {
+    this.departure = departure;
+    this.whereFrom = whereFrom;
+    this.whereTo = whereTo;
+    this.length = length;
+    this.priceOfFuel = priceOfFuel;
+    this.car = car;
+  }
+
   public Long getId() {
     return id;
   }
