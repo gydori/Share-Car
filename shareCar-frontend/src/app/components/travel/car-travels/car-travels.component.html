@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button (click)="back()" color="primary">Vissza</button>
+    <div *ngFor="let travel of travels">
+      <mat-card>
+        <mat-card-content>
+          <app-show-travels-template
+            [travel]="travel"
+          ></app-show-travels-template>
+        </mat-card-content>
+        <mat-card-actions>
+          <button color="warn" mat-raised-button (click)="deleteTravel(travel)">
+            Törlés
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>

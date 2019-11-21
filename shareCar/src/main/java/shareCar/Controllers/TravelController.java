@@ -40,6 +40,11 @@ public class TravelController {
     return travelService.getAllTravels();
   }
 
+  @GetMapping("/cartravels/{id}")
+  public List<Travel> getCarTravels(@PathVariable Long id) {
+    return travelService.getCarTravels(id);
+  }
+
   @DeleteMapping("/{id}")
   public void deleteTravel(@PathVariable Long id) {
     travelService.deleteTravel(id);

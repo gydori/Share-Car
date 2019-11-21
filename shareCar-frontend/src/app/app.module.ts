@@ -17,15 +17,17 @@ import { CreateCarComponent } from "./components/car/create-car/create-car.compo
 import { MyTravelsComponent } from "./components/travel/my-travels/my-travels.component";
 import { CreateTravelComponent } from "./components/travel/create-travel/create-travel.component";
 import { AllTravelsComponent } from "./components/travel/all-travels/all-travels.component";
-import { ShowTravelsTemplateComponent } from './components/travel/show-travels-template/show-travels-template.component';
-import { MyCarsComponent } from './components/car/my-cars/my-cars.component';
+import { ShowTravelsTemplateComponent } from "./components/travel/show-travels-template/show-travels-template.component";
+import { MyCarsComponent } from "./components/car/my-cars/my-cars.component";
+import { CarTravelsComponent } from "./components/travel/car-travels/car-travels.component";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "profile", component: ProfileComponent },
   { path: "mytravels", component: MyTravelsComponent },
-  { path: "alltravels", component: AllTravelsComponent }
+  { path: "alltravels", component: AllTravelsComponent },
+  { path: "profile/:id", component: CarTravelsComponent }
 ];
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ const myRoutes: Routes = [
     CreateTravelComponent,
     AllTravelsComponent,
     ShowTravelsTemplateComponent,
-    MyCarsComponent
+    MyCarsComponent,
+    CarTravelsComponent
   ],
   imports: [
     BrowserModule,

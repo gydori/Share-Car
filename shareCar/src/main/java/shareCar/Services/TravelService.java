@@ -26,6 +26,9 @@ public class TravelService {
   @Autowired
   private PersonService personService;
 
+  @Autowired
+  private CarService carService;
+
   public Travel createTravel(Travel travel) {
     return travelRepository.save(travel);
   }
@@ -47,6 +50,11 @@ public class TravelService {
   public Travel getOneTravel(Long id) {
     return travelRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
         HttpStatus.BAD_REQUEST, "travel can not found"));
+  }
+
+  public List<Travel> getCarTravels(Long id) {
+    return travelRepository.findAll(
+        Specification.where(filterService.filterByCar(carService.getOneCar(id))));
   }
 
   public void deleteTravel(Long id) {
