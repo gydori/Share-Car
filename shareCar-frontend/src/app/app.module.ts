@@ -18,6 +18,7 @@ import { MyTravelsComponent } from "./components/travel/my-travels/my-travels.co
 import { CreateTravelComponent } from "./components/travel/create-travel/create-travel.component";
 import { AllTravelsComponent } from "./components/travel/all-travels/all-travels.component";
 import { ShowTravelsTemplateComponent } from './components/travel/show-travels-template/show-travels-template.component';
+import { MyCarsComponent } from './components/car/my-cars/my-cars.component';
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -39,7 +40,8 @@ const myRoutes: Routes = [
     MyTravelsComponent,
     CreateTravelComponent,
     AllTravelsComponent,
-    ShowTravelsTemplateComponent
+    ShowTravelsTemplateComponent,
+    MyCarsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 package shareCar.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,7 @@ public class Car {
   private Person owner;
 
   @OneToMany(mappedBy = "car")
+  @JsonIgnore
   private List<Travel> travels;
 
   public Car() {
@@ -96,5 +98,13 @@ public class Car {
 
   public void setOwner(Person owner) {
     this.owner = owner;
+  }
+
+  public List<Travel> getTravels() {
+    return travels;
+  }
+
+  public void setTravels(List<Travel> travels) {
+    this.travels = travels;
   }
 }

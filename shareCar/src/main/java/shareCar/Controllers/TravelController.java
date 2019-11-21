@@ -40,9 +40,9 @@ public class TravelController {
     return travelService.getAllTravels();
   }
 
-  @DeleteMapping("")
-  public void deleteTravel(@RequestBody Travel travel) {
-    travelService.deleteTravel(travel);
+  @DeleteMapping("/{id}")
+  public void deleteTravel(@PathVariable Long id) {
+    travelService.deleteTravel(id);
   }
 
   @PutMapping("/join/{id}")

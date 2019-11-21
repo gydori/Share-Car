@@ -26,14 +26,8 @@ export class TravelService {
     return this.http.get(baseUrl + "travel/alltravels");
   }
 
-  public deleteTravel(travel: Travel): Observable<any> {
-    let options = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      }),
-      body: travel
-    };
-    return this.http.delete(baseUrl + "travel", options);
+  public deleteTravel(id: number): Observable<any> {
+    return this.http.delete(baseUrl + "travel/" + id);
   }
 
   public joinTravel(id: number): Observable<any> {

@@ -18,14 +18,7 @@ export class CarService {
     return this.http.get(baseUrl + "car");
   }
 
-  public deleteCar(car: Car): Observable<any> {
-    let options = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      }),
-      body: car
-    };
-
-    return this.http.delete(baseUrl + "car", options);
+  public deleteCar(id: number): Observable<any> {
+    return this.http.delete(baseUrl + "car/" + id);
   }
 }

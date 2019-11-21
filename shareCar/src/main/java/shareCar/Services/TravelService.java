@@ -44,14 +44,28 @@ public class TravelService {
     return travelRepository.findAll();
   }
 
-  public void deleteTravel(Travel travel) {
-    travelRepository.delete(travel);
+  public Travel getOneTravel(Long id) {
+    return travelRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
+        HttpStatus.BAD_REQUEST, "travel can not found"));
+  }
+
+  public void deleteTravel(Long id) {
+    if (!getOneTravel(id).getCar().getOwner().equals(personService.getCurrentPerson())) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+          "You can only delete your travels");
+    }
+    if (getOneTravel(id).getPassengers().size() != 0) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+          "You can not delete travel with passengers");
+    }
+    travelRepository.deleteById(id);
   }
 
   public void joinTravel(Long id) {
-    Travel travelToJoin = travelRepository.findById(id)
-        .orElseThrow(() -> new ResponseStatusException(
-            HttpStatus.BAD_REQUEST, "travel can not found"));
+    Travel travelToJoin = getOneTravel(id);
+    if (travelToJoin.getCar().getOwner().equals(personService.getCurrentPerson())) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can not join your own travel");
+    }
     travelToJoin.getPassengers().add(personService.getCurrentPerson());
     Person passenger = personService.getCurrentPerson();
     passenger.getTravelsAsPassenger().add(travelToJoin);
@@ -60,9 +74,7 @@ public class TravelService {
   }
 
   public void unjoinTravel(Long id) {
-    Travel travelToUnjoin = travelRepository.findById(id)
-        .orElseThrow(() -> new ResponseStatusException(
-            HttpStatus.BAD_REQUEST, "travel can not found"));
+    Travel travelToUnjoin = getOneTravel(id);
     travelToUnjoin.getPassengers().remove(personService.getCurrentPerson());
     Person passenger = personService.getCurrentPerson();
     passenger.getTravelsAsPassenger().remove(travelToUnjoin);

@@ -40,9 +40,31 @@ export class MyTravelsComponent implements OnInit {
   }
 
   public deleteTravel(travel: Travel): void {
-    this.travelService.deleteTravel(travel).subscribe(() => {
+    this.travelService.deleteTravel(travel.id).subscribe(() => {
       this.myTravelsAsDriver = this.myTravelsAsDriver.filter(
         item => item != travel
+      );
+    });
+  }
+
+  public isNotMyTravelAsDriver(travel: Travel): boolean {
+    return (
+      this.myTravelsAsDriver &&
+      this.myTravelsAsDriver.filter(t => t.id == travel.id).length == 0
+    );
+  }
+
+  public isNotMyTravelAsPassenger(travel: Travel): boolean {
+    return (
+      this.myTravelsAsPassenger &&
+      this.myTravelsAsPassenger.filter(t => t.id == travel.id).length == 0
+    );
+  }
+
+  public unjoinTravel(travel: Travel) {
+    this.travelService.unjoinTravel(travel.id).subscribe(() => {
+      this.myTravelsAsPassenger = this.myTravelsAsPassenger.filter(
+        t => t != travel
       );
     });
   }

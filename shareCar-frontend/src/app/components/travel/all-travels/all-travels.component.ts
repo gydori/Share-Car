@@ -56,7 +56,7 @@ export class AllTravelsComponent implements OnInit {
   }
 
   public deleteTravel(travel: Travel): void {
-    this.travelService.deleteTravel(travel).subscribe(() => {
+    this.travelService.deleteTravel(travel.id).subscribe(() => {
       this.myTravelsAsDriver = this.myTravelsAsDriver.filter(t => t != travel);
       this.travels = this.travels.filter(t => t != travel);
     });
