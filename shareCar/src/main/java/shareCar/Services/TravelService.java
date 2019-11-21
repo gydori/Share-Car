@@ -59,5 +59,16 @@ public class TravelService {
     travelRepository.save(travelToJoin);
   }
 
+  public void unjoinTravel(Long id) {
+    Travel travelToUnjoin = travelRepository.findById(id)
+        .orElseThrow(() -> new ResponseStatusException(
+            HttpStatus.BAD_REQUEST, "travel can not found"));
+    travelToUnjoin.getPassengers().remove(personService.getCurrentPerson());
+    Person passenger = personService.getCurrentPerson();
+    passenger.getTravelsAsPassenger().remove(travelToUnjoin);
+    personRepository.save(passenger);
+    travelRepository.save(travelToUnjoin);
+  }
+
 
 }

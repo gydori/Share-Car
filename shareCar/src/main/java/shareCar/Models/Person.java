@@ -3,6 +3,7 @@ package shareCar.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,7 +53,7 @@ public class Person {
       joinColumns = {@JoinColumn(name = "passenger_id")},
       inverseJoinColumns = {@JoinColumn(name = "travel_id")}
   )
-  private List<Travel> travelsAsPassenger;
+  private Set<Travel> travelsAsPassenger;
 
   public Person() {
   }
@@ -131,11 +132,11 @@ public class Person {
     this.cars = cars;
   }
 
-  public List<Travel> getTravelsAsPassenger() {
+  public Set<Travel> getTravelsAsPassenger() {
     return travelsAsPassenger;
   }
 
-  public void setTravelsAsPassenger(List<Travel> travelsAsPassenger) {
+  public void setTravelsAsPassenger(Set<Travel> travelsAsPassenger) {
     this.travelsAsPassenger = travelsAsPassenger;
   }
 }

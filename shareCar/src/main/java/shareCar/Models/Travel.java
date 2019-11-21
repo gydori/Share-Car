@@ -2,7 +2,7 @@ package shareCar.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,7 +43,7 @@ public class Travel {
 
   @ManyToMany(mappedBy = "travelsAsPassenger")
   @JsonIgnore
-  private List<Person> passengers;
+  private Set<Person> passengers;
 
   public Travel() {
   }
@@ -114,11 +114,11 @@ public class Travel {
     this.car = car;
   }
 
-  public List<Person> getPassengers() {
+  public Set<Person> getPassengers() {
     return passengers;
   }
 
-  public void setPassengers(List<Person> passengers) {
+  public void setPassengers(Set<Person> passengers) {
     this.passengers = passengers;
   }
 }

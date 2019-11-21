@@ -35,4 +35,12 @@ export class TravelService {
     };
     return this.http.delete(baseUrl + "travel", options);
   }
+
+  public joinTravel(id: number): Observable<any> {
+    return this.http.put(baseUrl + "travel/join/" + id, {});
+  }
+
+  public unjoinTravel(id: number): Observable<any> {
+    return this.http.put(baseUrl + "travel/unjoin/" + id, {});
+  }
 }

@@ -49,4 +49,9 @@ public class TravelController {
   public void joinTravel(@PathVariable Long id) {
     travelService.joinTravel(id);
   }
+
+  @PutMapping("/unjoin/{id}")
+  public void unjoinTravel(@PathVariable Long id) {
+    travelService.unjoinTravel(id);
+  }
 }

@@ -7,7 +7,31 @@
             [travel]="travel"
           ></app-show-travels-template>
         </mat-card-content>
-        <mat-card-actions> </mat-card-actions>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            (click)="joinTravel(travel)"
+            *ngIf="
+              isNotMyTravelAsDriver(travel) && isNotMyTravelAsPassenger(travel)
+            "
+          >
+            Csatlakozás
+          </button>
+          <button
+            mat-raised-button
+            (click)="deleteTravel(travel)"
+            *ngIf="!isNotMyTravelAsDriver(travel)"
+          >
+            Törlés
+          </button>
+          <button
+            mat-raised-button
+            (click)="unjoinTravel(travel)"
+            *ngIf="!isNotMyTravelAsPassenger(travel)"
+          >
+            Csatlakozás visszavonása
+          </button>
+        </mat-card-actions>
       </mat-card>
     </div>
   </mat-card-content>
