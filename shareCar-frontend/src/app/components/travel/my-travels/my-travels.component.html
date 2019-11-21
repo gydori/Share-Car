@@ -3,6 +3,16 @@
     <button mat-raised-button (click)="openAddTravel()" color="primary">
       Utazás hozzáadása
     </button>
+    <div *ngFor="let travel of myTravelsAsDriver.concat(myTravelsAsPassenger)">
+      <mat-card>
+        <mat-card-content>
+          <app-show-travels-template
+            [travel]="travel"
+          ></app-show-travels-template>
+        </mat-card-content>
+        <mat-card-actions> </mat-card-actions>
+      </mat-card>
+    </div>
   </mat-tab>
   <mat-tab label="Vezető">
     <button mat-raised-button (click)="openAddTravel()" color="primary">
@@ -11,24 +21,9 @@
     <div *ngFor="let travel of myTravelsAsDriver">
       <mat-card>
         <mat-card-content>
-          <mat-list-item
-            >Indulás időpontja:
-            {{ travel.departure | customDate }}</mat-list-item
-          >
-          <mat-list-item>Honnan: {{ travel.whereFrom }}</mat-list-item>
-          <mat-list-item>Havá: {{ travel.whereTo }}</mat-list-item>
-          <mat-list-item>Út hossza(km): {{ travel.length }}</mat-list-item>
-          <mat-list-item
-            >Üzemanyag ára/l: {{ travel.priceOfFuel }}</mat-list-item
-          >
-          <mat-list-item
-            >Autó: {{ travel.car.type }}
-            {{ travel.car.registrationNumber }}</mat-list-item
-          >
-          <mat-list-item
-            >Vezető: {{ travel.car.owner.firstname }}
-            {{ travel.car.owner.lastname }}</mat-list-item
-          >
+          <app-show-travels-template
+            [travel]="travel"
+          ></app-show-travels-template>
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button (click)="deleteTravel(travel)" color="warn">
@@ -42,24 +37,9 @@
     <div *ngFor="let travel of myTravelsAsPassenger">
       <mat-card>
         <mat-card-content>
-          <mat-list-item
-            >Indulás időpontja:
-            {{ travel.departure | customDate }}</mat-list-item
-          >
-          <mat-list-item>Honnan: {{ travel.whereFrom }}</mat-list-item>
-          <mat-list-item>Havá: {{ travel.whereTo }}</mat-list-item>
-          <mat-list-item>Út hossza(km): {{ travel.length }}</mat-list-item>
-          <mat-list-item
-            >Üzemanyag ára/l: {{ travel.priceOfFuel }}</mat-list-item
-          >
-          <mat-list-item
-            >Autó: {{ travel.car.type }}
-            {{ travel.car.registrationNumber }}</mat-list-item
-          >
-          <mat-list-item
-            >Vezető: {{ travel.car.owner.firstname }}
-            {{ travel.car.owner.lastname }}</mat-list-item
-          >
+          <app-show-travels-template
+            [travel]="travel"
+          ></app-show-travels-template>
         </mat-card-content>
         <mat-card-actions> </mat-card-actions>
       </mat-card>
