@@ -16,12 +16,14 @@ import { CustomDatePipe } from "./pipes/date.pipe";
 import { CreateCarComponent } from "./components/car/create-car/create-car.component";
 import { MyTravelsComponent } from "./components/travel/my-travels/my-travels.component";
 import { CreateTravelComponent } from "./components/travel/create-travel/create-travel.component";
+import { AllTravelsComponent } from "./components/travel/all-travels/all-travels.component";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "profile", component: ProfileComponent },
-  { path: "mytravels", component: MyTravelsComponent }
+  { path: "mytravels", component: MyTravelsComponent },
+  { path: "alltravels", component: AllTravelsComponent }
 ];
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ const myRoutes: Routes = [
     CustomDatePipe,
     CreateCarComponent,
     MyTravelsComponent,
-    CreateTravelComponent
+    CreateTravelComponent,
+    AllTravelsComponent
   ],
   imports: [
     BrowserModule,

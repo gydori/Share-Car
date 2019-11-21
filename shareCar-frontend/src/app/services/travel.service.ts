@@ -14,8 +14,16 @@ export class TravelService {
     return this.http.post(baseUrl + "travel", travel);
   }
 
-  public getMyTravels(): Observable<any> {
-    return this.http.get(baseUrl + "travel/mytravels");
+  public getMyTravelsAsDriver(): Observable<any> {
+    return this.http.get(baseUrl + "travel/mytravels/driver");
+  }
+
+  public getMyTravelsAsPassenger(): Observable<any> {
+    return this.http.get(baseUrl + "travel/mytravels/passenger");
+  }
+
+  public getAllTravels(): Observable<any> {
+    return this.http.get(baseUrl + "travel/alltravels");
   }
 
   public deleteTravel(travel: Travel): Observable<any> {

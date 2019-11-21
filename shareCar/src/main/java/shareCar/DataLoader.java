@@ -38,8 +38,20 @@ public class DataLoader implements CommandLineRunner {
     car1.setOwner(person1);
     carRepository.save(car1);
 
-    Travel travel = new Travel(LocalDateTime.of(2019, 05, 20, 10, 57), "innen", "oda", 10l, 400,
+    Travel travel1 = new Travel(LocalDateTime.of(2019, 05, 20, 10, 57), "innen", "oda", 10l, 400,
         car1);
-    travelService.createTravel(travel);
+    travelService.createTravel(travel1);
+
+    Person person2 = new Person("person2@person.com", "person", "Person2", "Person2", Gender.MALE,
+        LocalDate.of(1970, Month.APRIL, 11));
+    personService.createPerson(person2);
+
+    Car car2 = new Car("def-123", "skoda", 5, 170);
+    car2.setOwner(person2);
+    carRepository.save(car2);
+
+    Travel travel2 = new Travel(LocalDateTime.of(2019, 05, 20, 10, 57), "innen", "oda", 10l, 400,
+        car2);
+    travelService.createTravel(travel2);
   }
 }

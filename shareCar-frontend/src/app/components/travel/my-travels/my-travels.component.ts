@@ -10,7 +10,8 @@ import { Travel } from "src/app/models/travel.model";
   styleUrls: ["./my-travels.component.css"]
 })
 export class MyTravelsComponent implements OnInit {
-  private travels: Travel[] = [];
+  private myTravelsAsDriver: Travel[] = [];
+  private myTravelsAsPassenger: Travel[] = [];
 
   constructor(
     private dialog: MatDialog,
@@ -18,8 +19,11 @@ export class MyTravelsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.travelService.getMyTravels().subscribe((data: Travel[]) => {
-      this.travels = data;
+    this.travelService.getMyTravelsAsDriver().subscribe((data: Travel[]) => {
+      this.myTravelsAsDriver = data;
+    });
+    this.travelService.getMyTravelsAsPassenger().subscribe((data: Travel[]) => {
+      this.myTravelsAsPassenger = data;
     });
   }
 
@@ -29,7 +33,7 @@ export class MyTravelsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined) {
         this.travelService.createTravel(result).subscribe((data: Travel) => {
-          this.travels.push(data);
+          this.myTravelsAsDriver.push(data);
         });
       }
     });
@@ -37,7 +41,9 @@ export class MyTravelsComponent implements OnInit {
 
   public deleteTravel(travel: Travel): void {
     this.travelService.deleteTravel(travel).subscribe(() => {
-      this.travels = this.travels.filter(item => item != travel);
+      this.myTravelsAsDriver = this.myTravelsAsDriver.filter(
+        item => item != travel
+      );
     });
   }
 }

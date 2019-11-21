@@ -11,6 +11,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from "@angular/material/list";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatSelectModule } from "@angular/material/select";
+import { MatTabsModule } from "@angular/material/tabs";
 
 const materialComponents = [
   MatCardModule,
@@ -25,7 +26,8 @@ const materialComponents = [
   MatToolbarModule,
   MatListModule,
   MatDialogModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTabsModule
 ];
 
 @NgModule({

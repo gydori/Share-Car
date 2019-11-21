@@ -1,5 +1,6 @@
 package shareCar.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Column;
@@ -41,15 +42,17 @@ public class Person {
   private LocalDate dateOfBirth;
 
   @OneToMany(mappedBy = "owner")
+  @JsonIgnore
   private List<Car> cars;
+
   @ManyToMany
+  @JsonIgnore
   @JoinTable(
       name = "person_travels",
       joinColumns = {@JoinColumn(name = "passenger_id")},
       inverseJoinColumns = {@JoinColumn(name = "travel_id")}
   )
-
-  private List<Travel> travels;
+  private List<Travel> travelsAsPassenger;
 
   public Person() {
   }
@@ -118,5 +121,21 @@ public class Person {
 
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+  }
+
+  public List<Car> getCars() {
+    return cars;
+  }
+
+  public void setCars(List<Car> cars) {
+    this.cars = cars;
+  }
+
+  public List<Travel> getTravelsAsPassenger() {
+    return travelsAsPassenger;
+  }
+
+  public void setTravelsAsPassenger(List<Travel> travelsAsPassenger) {
+    this.travelsAsPassenger = travelsAsPassenger;
   }
 }

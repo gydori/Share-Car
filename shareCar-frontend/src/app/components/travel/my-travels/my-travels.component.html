@@ -1,9 +1,14 @@
-<button mat-raised-button (click)="openAddTravel()" color="primary">
-  Utazás hozzáadása
-</button>
-<mat-card>
-  <mat-card-content>
-    <div *ngFor="let travel of travels">
+<mat-tab-group>
+  <mat-tab label="Összes">
+    <button mat-raised-button (click)="openAddTravel()" color="primary">
+      Utazás hozzáadása
+    </button>
+  </mat-tab>
+  <mat-tab label="Vezető">
+    <button mat-raised-button (click)="openAddTravel()" color="primary">
+      Utazás hozzáadása
+    </button>
+    <div *ngFor="let travel of myTravelsAsDriver">
       <mat-card>
         <mat-card-content>
           <mat-list-item
@@ -20,6 +25,10 @@
             >Autó: {{ travel.car.type }}
             {{ travel.car.registrationNumber }}</mat-list-item
           >
+          <mat-list-item
+            >Vezető: {{ travel.car.owner.firstname }}
+            {{ travel.car.owner.lastname }}</mat-list-item
+          >
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button (click)="deleteTravel(travel)" color="warn">
@@ -28,5 +37,32 @@
         </mat-card-actions>
       </mat-card>
     </div>
-  </mat-card-content>
-</mat-card>
+  </mat-tab>
+  <mat-tab label="Utas">
+    <div *ngFor="let travel of myTravelsAsPassenger">
+      <mat-card>
+        <mat-card-content>
+          <mat-list-item
+            >Indulás időpontja:
+            {{ travel.departure | customDate }}</mat-list-item
+          >
+          <mat-list-item>Honnan: {{ travel.whereFrom }}</mat-list-item>
+          <mat-list-item>Havá: {{ travel.whereTo }}</mat-list-item>
+          <mat-list-item>Út hossza(km): {{ travel.length }}</mat-list-item>
+          <mat-list-item
+            >Üzemanyag ára/l: {{ travel.priceOfFuel }}</mat-list-item
+          >
+          <mat-list-item
+            >Autó: {{ travel.car.type }}
+            {{ travel.car.registrationNumber }}</mat-list-item
+          >
+          <mat-list-item
+            >Vezető: {{ travel.car.owner.firstname }}
+            {{ travel.car.owner.lastname }}</mat-list-item
+          >
+        </mat-card-content>
+        <mat-card-actions> </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>

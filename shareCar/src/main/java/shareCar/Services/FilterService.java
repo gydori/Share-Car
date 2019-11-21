@@ -16,4 +16,13 @@ public class FilterService {
       return cb.equal(root.get("car").get("owner"), person);
     };
   }
+
+  public Specification<Travel> filterByPassenger(Person person) {
+    return (root, query, cb) -> {
+      if (person == null) {
+        return cb.isTrue(cb.literal(true));
+      }
+      return cb.isMember(person, root.get("passengers"));
+    };
+  }
 }
