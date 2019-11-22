@@ -20,6 +20,9 @@ import { AllTravelsComponent } from "./components/travel/all-travels/all-travels
 import { ShowTravelsTemplateComponent } from "./components/travel/show-travels-template/show-travels-template.component";
 import { MyCarsComponent } from "./components/car/my-cars/my-cars.component";
 import { CarTravelsComponent } from "./components/travel/car-travels/car-travels.component";
+import { ShowCarTemplateComponent } from "./components/car/show-car-template/show-car-template.component";
+import { ShowCarTemplateModalComponent } from "./components/car/show-car-template-modal/show-car-template-modal.component";
+import { ShowPersonModalComponent } from "./components/person/show-person-modal/show-person-modal.component";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -44,7 +47,10 @@ const myRoutes: Routes = [
     AllTravelsComponent,
     ShowTravelsTemplateComponent,
     MyCarsComponent,
-    CarTravelsComponent
+    CarTravelsComponent,
+    ShowCarTemplateComponent,
+    ShowCarTemplateModalComponent,
+    ShowPersonModalComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +67,11 @@ const myRoutes: Routes = [
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [CreateCarComponent, CreateTravelComponent]
+  entryComponents: [
+    CreateCarComponent,
+    CreateTravelComponent,
+    ShowCarTemplateModalComponent,
+    ShowPersonModalComponent
+  ]
 })
 export class AppModule {}

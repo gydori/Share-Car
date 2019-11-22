@@ -6,10 +6,20 @@
 <mat-list-item>Út hossza(km): {{ travel.length }}</mat-list-item>
 <mat-list-item>Üzemanyag ára/l: {{ travel.priceOfFuel }}</mat-list-item>
 <mat-list-item
-  >Autó: {{ travel.car.type }}
-  {{ travel.car.registrationNumber }}</mat-list-item
+  >Autó: {{ travel.car.type }} {{ travel.car.registrationNumber }}
+  <button mat-raised-button (click)="openShowCar()">
+    <i class="material-icons">
+      directions_car
+    </i>
+  </button></mat-list-item
 >
+
 <mat-list-item
   >Vezető: {{ travel.car.owner.firstname }}
-  {{ travel.car.owner.lastname }}</mat-list-item
+  {{ travel.car.owner.lastname }}
+  <button mat-raised-button (click)="openShowDriver()">
+    <i class="material-icons">
+      airline_seat_recline_extra
+    </i>
+  </button></mat-list-item
 >

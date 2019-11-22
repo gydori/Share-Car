@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-content>
+    <mat-list-item>Rendszám: {{ car.registrationNumber }}</mat-list-item>
+    <mat-list-item>Típus: {{ car.type }}</mat-list-item>
+    <mat-list-item>Ülések száma: {{ car.numberOfSeats }}</mat-list-item>
+    <mat-list-item>Fogyasztás/km: {{ car.consumptionPerKm }}</mat-list-item>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [mat-dialog-close] color="primary">
+      OK
+    </button>
+  </mat-card-actions>
+</mat-card>
