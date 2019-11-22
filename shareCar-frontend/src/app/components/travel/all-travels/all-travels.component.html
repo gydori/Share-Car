@@ -1,6 +1,21 @@
-<mat-card>
-  <mat-card-content>
-    <div *ngFor="let travel of travels">
+<mat-accordion displayMode="flat" multi class="mat-table">
+  <section matSort class="mat-elevation-z2 mat-header-row">
+    <span class="mat-header-cell">Indulás</span>
+    <span class="mat-header-cell">Honnan</span>
+    <span class="mat-header-cell">Hová</span>
+    <span class="mat-header-cell">Vezető</span>
+  </section>
+
+  <mat-expansion-panel *ngFor="let travel of travels">
+    <mat-expansion-panel-header class="mat-row">
+      <span class="mat-cell">{{ travel.departure | customDate }}</span>
+      <span class="mat-cell">{{ travel.whereFrom }}</span>
+      <span class="mat-cell">{{ travel.whereTo }}</span>
+      <span class="mat-cell"
+        >{{ travel.car.owner.firstname }} {{ travel.car.owner.lastname }}</span
+      >
+    </mat-expansion-panel-header>
+    <div>
       <mat-card>
         <mat-card-content>
           <app-show-travels-template
@@ -37,5 +52,5 @@
         </mat-card-actions>
       </mat-card>
     </div>
-  </mat-card-content>
-</mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

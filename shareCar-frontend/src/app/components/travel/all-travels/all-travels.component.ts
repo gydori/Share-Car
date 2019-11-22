@@ -11,7 +11,6 @@ export class AllTravelsComponent implements OnInit {
   private travels: Travel[];
   private myTravelsAsDriver: Travel[];
   private myTravelsAsPassenger: Travel[];
-  private message: string;
 
   constructor(private travelService: TravelService) {}
 
