@@ -23,6 +23,8 @@ import { CarTravelsComponent } from "./components/travel/car-travels/car-travels
 import { ShowCarTemplateComponent } from "./components/car/show-car-template/show-car-template.component";
 import { ShowCarTemplateModalComponent } from "./components/car/show-car-template-modal/show-car-template-modal.component";
 import { ShowPersonModalComponent } from "./components/person/show-person-modal/show-person-modal.component";
+import { ShowPassengersModalComponent } from "./components/travel/show-passengers-modal/show-passengers-modal.component";
+import { ShowPersonTemplateComponent } from './components/person/show-person-template/show-person-template.component';
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -50,7 +52,9 @@ const myRoutes: Routes = [
     CarTravelsComponent,
     ShowCarTemplateComponent,
     ShowCarTemplateModalComponent,
-    ShowPersonModalComponent
+    ShowPersonModalComponent,
+    ShowPassengersModalComponent,
+    ShowPersonTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,8 @@ const myRoutes: Routes = [
     CreateCarComponent,
     CreateTravelComponent,
     ShowCarTemplateModalComponent,
-    ShowPersonModalComponent
+    ShowPersonModalComponent,
+    ShowPassengersModalComponent
   ]
 })
 export class AppModule {}

@@ -9,6 +9,8 @@ import shareCar.Models.Travel;
 @Service
 public class FilterService {
 
+  //Travels --------------------------------------------------
+
   public Specification<Travel> filterByCarOwner(Person person) {
     return (root, query, cb) -> {
       if (person == null) {
@@ -33,6 +35,17 @@ public class FilterService {
         return cb.isTrue(cb.literal(true));
       }
       return cb.isMember(person, root.get("passengers"));
+    };
+  }
+
+  //Person -------------------------------------------------------------
+
+  public Specification<Person> filterByTravel(Travel travel) {
+    return (root, query, cb) -> {
+      if (travel == null) {
+        return cb.isTrue(cb.literal(true));
+      }
+      return cb.isMember(travel, root.get("travelsAsPassenger"));
     };
   }
 }

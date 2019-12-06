@@ -1,0 +1,13 @@
+<div *ngFor="let passenger of passengers">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ passenger.lastname }} {{ passenger.firstname }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-show-person-template [person]="passenger"></app-show-person-template>
+  </mat-expansion-panel>
+</div>
+<button mat-raised-button [mat-dialog-close] color="primary">
+  OK
+</button>

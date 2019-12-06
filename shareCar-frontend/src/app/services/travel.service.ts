@@ -32,8 +32,8 @@ export class TravelService {
     return this.http.get(this.baseUrl + "/cartravels/" + id);
   }
 
-  public deleteTravel(id: number): Observable<any> {
-    return this.http.delete(this.baseUrl + "/" + id);
+  public getPassengers(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "/passengers/" + id);
   }
 
   public joinTravel(id: number): Observable<any> {
@@ -42,5 +42,9 @@ export class TravelService {
 
   public unjoinTravel(id: number): Observable<any> {
     return this.http.put(this.baseUrl + "/unjoin/" + id, {});
+  }
+
+  public deleteTravel(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + "/" + id);
   }
 }

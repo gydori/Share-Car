@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import shareCar.Models.Person;
 import shareCar.Models.Travel;
 import shareCar.Services.TravelService;
 
@@ -45,9 +46,9 @@ public class TravelController {
     return travelService.getCarTravels(id);
   }
 
-  @DeleteMapping("/{id}")
-  public void deleteTravel(@PathVariable Long id) {
-    travelService.deleteTravel(id);
+  @GetMapping("/passengers/{id}")
+  public List<Person> getPassengers(@PathVariable Long id) {
+    return travelService.getPassengers(id);
   }
 
   @PutMapping("/join/{id}")
@@ -59,4 +60,10 @@ public class TravelController {
   public void unjoinTravel(@PathVariable Long id) {
     travelService.unjoinTravel(id);
   }
+
+  @DeleteMapping("/{id}")
+  public void deleteTravel(@PathVariable Long id) {
+    travelService.deleteTravel(id);
+  }
+
 }

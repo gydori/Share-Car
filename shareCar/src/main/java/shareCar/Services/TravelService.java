@@ -90,5 +90,10 @@ public class TravelService {
     travelRepository.save(travelToUnjoin);
   }
 
+  public List<Person> getPassengers(Long id) {
+    return personRepository.findAll(
+        Specification.where(filterService.filterByTravel(getOneTravel(id))));
+  }
+
 
 }
