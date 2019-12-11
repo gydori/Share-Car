@@ -1,0 +1,12 @@
+<div *ngFor="let finance of finances">
+  <mat-expansion-panel [ngStyle]="{ backgroundColor: getColor(finance) }">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ finance.person.lastname }} {{ finance.person.firstname }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ finance.amount }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</div>

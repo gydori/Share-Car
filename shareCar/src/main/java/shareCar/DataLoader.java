@@ -53,5 +53,9 @@ public class DataLoader implements CommandLineRunner {
     Travel travel2 = new Travel(LocalDateTime.of(2019, 05, 20, 10, 57), "innen", "oda", 10l, 400,
         car2);
     travelService.createTravel(travel2);
+
+    Person person3 = new Person("person3@person.com", "person", "Person3", "Person3", Gender.FEMALE,
+        LocalDate.of(1970, Month.APRIL, 11));
+    personService.createPerson(person3);
   }
 }

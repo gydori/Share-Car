@@ -1,10 +1,12 @@
 package shareCar.Services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import shareCar.Models.FinanceDTO;
 import shareCar.Models.Person;
 import shareCar.Models.Travel;
 
@@ -14,7 +16,7 @@ public class FinanceService {
   @Autowired
   private TravelService travelService;
 
-  public Map<Person, Long> finances() {
+  public List<FinanceDTO> finances() {
     List<Travel> travelsAsDriver = travelService.getMyTravelsAsDriver();
     Map<Person, Long> finances = new HashMap<>();
     for (Travel t : travelsAsDriver) {
@@ -35,7 +37,11 @@ public class FinanceService {
         finances.put(p, calculateAmount(t) * (-1));
       }
     }
-    return finances;
+    List<FinanceDTO> financeList = new ArrayList<>();
+    for (Map.Entry<Person, Long> entry : finances.entrySet()) {
+      financeList.add(new FinanceDTO(entry.getKey(), entry.getValue()));
+    }
+    return financeList;
   }
 
   public Long calculateAmount(Travel travel) {

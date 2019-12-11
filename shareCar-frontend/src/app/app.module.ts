@@ -24,7 +24,8 @@ import { ShowCarTemplateComponent } from "./components/car/show-car-template/sho
 import { ShowCarTemplateModalComponent } from "./components/car/show-car-template-modal/show-car-template-modal.component";
 import { ShowPersonModalComponent } from "./components/person/show-person-modal/show-person-modal.component";
 import { ShowPassengersModalComponent } from "./components/travel/show-passengers-modal/show-passengers-modal.component";
-import { ShowPersonTemplateComponent } from './components/person/show-person-template/show-person-template.component';
+import { ShowPersonTemplateComponent } from "./components/person/show-person-template/show-person-template.component";
+import { AllFinancesComponent } from "./components/finance/all-finances/all-finances.component";
 
 const myRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -32,7 +33,8 @@ const myRoutes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "mytravels", component: MyTravelsComponent },
   { path: "alltravels", component: AllTravelsComponent },
-  { path: "profile/:id", component: CarTravelsComponent }
+  { path: "profile/:id", component: CarTravelsComponent },
+  { path: "finances", component: AllFinancesComponent }
 ];
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ const myRoutes: Routes = [
     ShowCarTemplateModalComponent,
     ShowPersonModalComponent,
     ShowPassengersModalComponent,
-    ShowPersonTemplateComponent
+    ShowPersonTemplateComponent,
+    AllFinancesComponent
   ],
   imports: [
     BrowserModule,
