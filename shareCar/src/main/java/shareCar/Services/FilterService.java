@@ -48,4 +48,5 @@ public class FilterService {
       return cb.isMember(travel, root.get("travelsAsPassenger"));
     };
   }
+
 }

@@ -15,17 +15,15 @@ import shareCar.Repositories.TravelRepository;
 public class TravelService {
 
   @Autowired
+  FinanceService financeService;
+  @Autowired
   private TravelRepository travelRepository;
-
   @Autowired
   private PersonRepository personRepository;
-
   @Autowired
   private FilterService filterService;
-
   @Autowired
   private PersonService personService;
-
   @Autowired
   private CarService carService;
 
